@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ServiceModelStoreContainer" CdmEntityContainer="ServiceEntities9">
+    <EntitySetMapping Name="Activitylogs">
+      <EntityTypeMapping TypeName="ServiceModel.Activitylog">
+        <MappingFragment StoreEntitySet="Activitylogs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tbl_name" ColumnName="tbl_name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="ServiceModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="contactId" ColumnName="contactId" />
+          <ScalarProperty Name="sap_contact_number" ColumnName="sap_contact_number" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="marital_status" ColumnName="marital_status" />
+          <ScalarProperty Name="account_name" ColumnName="account_name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="phone_2" ColumnName="phone_2" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="sap_created_by" ColumnName="sap_created_by" />
+          <ScalarProperty Name="sap_created_date" ColumnName="sap_created_date" />
+          <ScalarProperty Name="sap_last_modify_by" ColumnName="sap_last_modify_by" />
+          <ScalarProperty Name="sap_last_modify_date" ColumnName="sap_last_modify_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacttocontacts">
+      <EntityTypeMapping TypeName="ServiceModel.Contacttocontact">
+        <MappingFragment StoreEntitySet="Contacttocontacts">
+          <ScalarProperty Name="contactToContactId" ColumnName="contactToContactId" />
+          <ScalarProperty Name="sap_contact_number" ColumnName="sap_contact_number" />
+          <ScalarProperty Name="dicision_maker" ColumnName="dicision_maker" />
+          <ScalarProperty Name="relation_category" ColumnName="relation_category" />
+          <ScalarProperty Name="rev_contact_number" ColumnName="rev_contact_number" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_date" ColumnName="last_modified_date" />
+          <ScalarProperty Name="source_system" ColumnName="source_system" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Distributors">
+      <EntityTypeMapping TypeName="ServiceModel.Distributor">
+        <MappingFragment StoreEntitySet="Distributors">
+          <ScalarProperty Name="DistributorID" ColumnName="DistributorID" />
+          <ScalarProperty Name="account_name" ColumnName="account_name" />
+          <ScalarProperty Name="account_owner" ColumnName="account_owner" />
+          <ScalarProperty Name="sap_account_number" ColumnName="sap_account_number" />
+          <ScalarProperty Name="sap_account_status" ColumnName="sap_account_status" />
+          <ScalarProperty Name="account_type" ColumnName="account_type" />
+          <ScalarProperty Name="account_subtype" ColumnName="account_subtype" />
+          <ScalarProperty Name="primary_sold_to" ColumnName="primary_sold_to" />
+          <ScalarProperty Name="sap_term_of_payment" ColumnName="sap_term_of_payment" />
+          <ScalarProperty Name="sap_credit_limit" ColumnName="sap_credit_limit" />
+          <ScalarProperty Name="sap_remaining_credit" ColumnName="sap_remaining_credit" />
+          <ScalarProperty Name="address_1" ColumnName="address_1" />
+          <ScalarProperty Name="address_2" ColumnName="address_2" />
+          <ScalarProperty Name="address_3" ColumnName="address_3" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="extension_1" ColumnName="extension_1" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="mobile_1" ColumnName="mobile_1" />
+          <ScalarProperty Name="sap_created_by" ColumnName="sap_created_by" />
+          <ScalarProperty Name="sap_created_date" ColumnName="sap_created_date" />
+          <ScalarProperty Name="sap_last_modified_by" ColumnName="sap_last_modified_by" />
+          <ScalarProperty Name="sap_last_modified_date" ColumnName="sap_last_modified_date" />
+          <ScalarProperty Name="account_site" ColumnName="account_site" />
+          <ScalarProperty Name="account_source" ColumnName="account_source" />
+          <ScalarProperty Name="annual_revenue" ColumnName="annual_revenue" />
+          <ScalarProperty Name="billing_address" ColumnName="billing_address" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="data_com_key" ColumnName="data_com_key" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="employees" ColumnName="employees" />
+          <ScalarProperty Name="industry" ColumnName="industry" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="ownership" ColumnName="ownership" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="shipping_address" ColumnName="shipping_address" />
+          <ScalarProperty Name="sic_code" ColumnName="sic_code" />
+          <ScalarProperty Name="sic_description" ColumnName="sic_description" />
+          <ScalarProperty Name="ticker_symbol" ColumnName="ticker_symbol" />
+          <ScalarProperty Name="website" ColumnName="website" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="customer_priority" ColumnName="customer_priority" />
+          <ScalarProperty Name="number_of_location" ColumnName="number_of_location" />
+          <ScalarProperty Name="sla" ColumnName="sla" />
+          <ScalarProperty Name="sla_expiration_date" ColumnName="sla_expiration_date" />
+          <ScalarProperty Name="sla_serial_number" ColumnName="sla_serial_number" />
+          <ScalarProperty Name="transportation" ColumnName="transportation" />
+          <ScalarProperty Name="upsell_opportunity" ColumnName="upsell_opportunity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prospects">
+      <EntityTypeMapping TypeName="ServiceModel.Prospect">
+        <MappingFragment StoreEntitySet="Prospects">
+          <ScalarProperty Name="prospectId" ColumnName="prospectId" />
+          <ScalarProperty Name="account_name" ColumnName="account_name" />
+          <ScalarProperty Name="account_owner" ColumnName="account_owner" />
+          <ScalarProperty Name="stars_prospect_id" ColumnName="stars_prospect_id" />
+          <ScalarProperty Name="sap_account_number" ColumnName="sap_account_number" />
+          <ScalarProperty Name="sap_account_status" ColumnName="sap_account_status" />
+          <ScalarProperty Name="account_type" ColumnName="account_type" />
+          <ScalarProperty Name="account_subtype" ColumnName="account_subtype" />
+          <ScalarProperty Name="primary_sold_to" ColumnName="primary_sold_to" />
+          <ScalarProperty Name="address_1" ColumnName="address_1" />
+          <ScalarProperty Name="address_2" ColumnName="address_2" />
+          <ScalarProperty Name="address_3" ColumnName="address_3" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="extension_1" ColumnName="extension_1" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="mobile_1" ColumnName="mobile_1" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="sap_created_by" ColumnName="sap_created_by" />
+          <ScalarProperty Name="sap_created_date" ColumnName="sap_created_date" />
+          <ScalarProperty Name="sap_last_modified_by" ColumnName="sap_last_modified_by" />
+          <ScalarProperty Name="sap_last_modified_date" ColumnName="sap_last_modified_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Retailers">
+      <EntityTypeMapping TypeName="ServiceModel.Retailer">
+        <MappingFragment StoreEntitySet="Retailers">
+          <ScalarProperty Name="retailerId" ColumnName="retailerId" />
+          <ScalarProperty Name="account_name" ColumnName="account_name" />
+          <ScalarProperty Name="account_owner" ColumnName="account_owner" />
+          <ScalarProperty Name="stars_prospect_id" ColumnName="stars_prospect_id" />
+          <ScalarProperty Name="sap_account_number" ColumnName="sap_account_number" />
+          <ScalarProperty Name="sap_account_status" ColumnName="sap_account_status" />
+          <ScalarProperty Name="account_type" ColumnName="account_type" />
+          <ScalarProperty Name="account_subtype" ColumnName="account_subtype" />
+          <ScalarProperty Name="primary_sold_to" ColumnName="primary_sold_to" />
+          <ScalarProperty Name="address_1" ColumnName="address_1" />
+          <ScalarProperty Name="address_2" ColumnName="address_2" />
+          <ScalarProperty Name="address_3" ColumnName="address_3" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="extension_1" ColumnName="extension_1" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="mobile_1" ColumnName="mobile_1" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="sap_created_by" ColumnName="sap_created_by" />
+          <ScalarProperty Name="sap_created_date" ColumnName="sap_created_date" />
+          <ScalarProperty Name="sap_last_modified_by" ColumnName="sap_last_modified_by" />
+          <ScalarProperty Name="sap_last_modified_date" ColumnName="sap_last_modified_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salesareas">
+      <EntityTypeMapping TypeName="ServiceModel.Salesarea">
+        <MappingFragment StoreEntitySet="Salesareas">
+          <ScalarProperty Name="salesareaId" ColumnName="salesareaId" />
+          <ScalarProperty Name="sales_organization" ColumnName="sales_organization" />
+          <ScalarProperty Name="segment_code" ColumnName="segment_code" />
+          <ScalarProperty Name="segment_description" ColumnName="segment_description" />
+          <ScalarProperty Name="distribution_channel" ColumnName="distribution_channel" />
+          <ScalarProperty Name="division" ColumnName="division" />
+          <ScalarProperty Name="sales_district" ColumnName="sales_district" />
+          <ScalarProperty Name="customer_group" ColumnName="customer_group" />
+          <ScalarProperty Name="sales_group" ColumnName="sales_group" />
+          <ScalarProperty Name="account_group" ColumnName="account_group" />
+          <ScalarProperty Name="sales_office" ColumnName="sales_office" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="deletion" ColumnName="deletion" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeActivities">
+      <EntityTypeMapping TypeName="ServiceModel.TypeActivity">
+        <MappingFragment StoreEntitySet="TypeActivity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DistirbutorId" ColumnName="DistirbutorId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouses">
+      <EntityTypeMapping TypeName="ServiceModel.Warehouse">
+        <MappingFragment StoreEntitySet="Warehouses">
+          <ScalarProperty Name="wirehouseId" ColumnName="wirehouseId" />
+          <ScalarProperty Name="holcim_wirehouse_id" ColumnName="holcim_wirehouse_id" />
+          <ScalarProperty Name="holcim_wirehouse_name" ColumnName="holcim_wirehouse_name" />
+          <ScalarProperty Name="primary_sold_to" ColumnName="primary_sold_to" />
+          <ScalarProperty Name="address_1" ColumnName="address_1" />
+          <ScalarProperty Name="address_2" ColumnName="address_2" />
+          <ScalarProperty Name="address_3" ColumnName="address_3" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

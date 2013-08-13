@@ -1,0 +1,10 @@
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\DataLayer\bin\Debug\DataLayer.dll.config
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\DataLayer\bin\Debug\DataLayer.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\DataLayer\bin\Debug\DataLayer.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\DataLayer\bin\Debug\CommonEntitas.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\DataLayer\bin\Debug\EntityFramework.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\DataLayer\bin\Debug\CommonEntitas.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\DataLayer\bin\Debug\EntityFramework.xml
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\DataLayer\obj\Debug\DataLayer.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\DataLayer\obj\Debug\DataLayer.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache

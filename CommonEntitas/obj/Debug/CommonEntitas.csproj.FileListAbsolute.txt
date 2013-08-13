@@ -1,0 +1,5 @@
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\CommonEntitas\bin\Debug\CommonEntitas.dll.config
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\CommonEntitas\bin\Debug\CommonEntitas.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\CommonEntitas\bin\Debug\CommonEntitas.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\CommonEntitas\obj\Debug\CommonEntitas.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\CommonEntitas\obj\Debug\CommonEntitas.pdb
