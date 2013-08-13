@@ -1,0 +1,13 @@
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\bin\Debug\BusinessLogic.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\bin\Debug\BusinessLogic.dll.config
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\bin\Debug\BusinessLogic.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\bin\Debug\CommonEntitas.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\bin\Debug\DataLayer.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\bin\Debug\EntityFramework.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\bin\Debug\log4net.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\bin\Debug\CommonEntitas.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\bin\Debug\DataLayer.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\bin\Debug\EntityFramework.xml
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\bin\Debug\log4net.xml
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\obj\Debug\BusinessLogic.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\BusinessLogic\obj\Debug\BusinessLogic.pdb
