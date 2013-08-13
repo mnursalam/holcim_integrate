@@ -1,0 +1,15 @@
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\WcfStarService.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\WcfStarService.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\BusinessLogic.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\CommonEntitas.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\log4net.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\DataLayer.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\EntityFramework.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\BusinessLogic.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\CommonEntitas.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\log4net.xml
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\DataLayer.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\EntityFramework.xml
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\obj\Debug\WcfStarService.dll
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\obj\Debug\WcfStarService.pdb
+D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\obj\Debug\WcfStarService.csprojResolveAssemblyReference.cache
