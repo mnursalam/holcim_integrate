@@ -44,10 +44,9 @@
   <ItemGroup>
     <Compile Include="Activitylog.cs" />
     <Compile Include="Contact.cs" />
-    <Compile Include="Contacttocontact.cs" />
+    <Compile Include="ContactRelation.cs" />
     <Compile Include="Distributor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Prospect.cs" />
     <Compile Include="Retailer.cs" />
     <Compile Include="Salesarea.cs">
       <SubType>Code</SubType>

@@ -12,4 +12,3 @@ D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\DataLayer.pdb
 D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\bin\EntityFramework.xml
 D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\obj\Debug\WcfStarService.dll
 D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\obj\Debug\WcfStarService.pdb
-D:\WGS\dotnet\AppHolcim\ServiceMvcHolcim\WcfStarService\obj\Debug\WcfStarService.csprojResolveAssemblyReference.cache

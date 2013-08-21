@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace BusinessLogic
 {
-    public class ClsData : ServiceEntities9
+    public class ClsData : ServiceEntities13
     {
         public ClsData()
         {
@@ -19,65 +19,47 @@ namespace BusinessLogic
             this.SaveChanges();
         }
 
-        public IQueryable<Distributor> getLastDistributors()
+        public IQueryable<Distributor> DistributorBySapID(string _sap_account_number)
         {
-            IQueryable<Distributor> sql = this.Distributors.OrderByDescending(e => e.DistributorID).Skip(0).Take(1);
+            IQueryable<Distributor> sql = this.Distributors.Where(e => e.sap_account_number == _sap_account_number);
             return sql;
         }
 
-        public IQueryable<Retailer> getLastRetailers()
+        public IQueryable<Retailer> RetailerBySapID(string _sap_account_number)
         {
-            IQueryable<Retailer> sql = this.Retailers.OrderByDescending(e => e.retailerId).Skip(0).Take(1);
+            IQueryable<Retailer> sql = this.Retailers.Where(e => e.sap_account_number == _sap_account_number);
             return sql;
         }
 
-        public IQueryable<Prospect> getLastProspects()
+        public IQueryable<warehouse> WarehouseBySapID(string _sap_account_number)
         {
-            IQueryable<Prospect> sql = this.Prospects.OrderByDescending(e => e.prospectId).Skip(0).Take(1);
+            IQueryable<warehouse> sql = this.warehouses.Where(e => e.sap_account_number == _sap_account_number);
             return sql;
         }
 
-        public IQueryable<Contact> getLastContacts()
+        public IQueryable<Contact> ContactBySapID(string _sap_contact_number)
         {
-            IQueryable<Contact> sql = this.Contacts.OrderByDescending(e => e.contactId).Skip(0).Take(1);
+            IQueryable<Contact> sql = this.Contacts.Where(e => e.sap_contact_number == _sap_contact_number);
             return sql;
         }
 
-        public IQueryable<Salesarea> getLastSalesareas()
+
+        public IQueryable<Salesarea> LastSalesArea()
         {
-            IQueryable<Salesarea> sql = this.Salesareas.OrderByDescending(e => e.salesareaId).Skip(0).Take(1);
+            IQueryable<Salesarea> sql = this.Salesareas.OrderByDescending(e => e.salesareaId);
             return sql;
         }
 
         
-        public IQueryable<Contacttocontact> getLastContactToContact()
+        /*public IQueryable<TypeActivity> getDataJoinTypeActivityAndDistributor()
         {
-            IQueryable<Contacttocontact> sql = this.Contacttocontacts.OrderByDescending(e => e.contactToContactId).Skip(0).Take(1);
-            return sql;
-        }
-
-        public IQueryable<Warehouse> getLastWarehouse()
-        {
-            IQueryable<Warehouse> sql = this.Warehouses.OrderByDescending(e => e.wirehouseId).Skip(0).Take(1);
-            return sql;
-        }
-
-        // ============test method
-
-        public IQueryable<TypeActivity> getDataJoinTypeActivityAndDistributor()
-        {
-            /*IQueryable<TypeActivity> strQuery = from s in this.TypeActivities
+            IQueryable<TypeActivity> strQuery = from s in this.TypeActivities
                                                 join e in this.Distributors
                                                 on s.DistirbutorId equals e.DistributorID
-                                                select s;*/
+                                                select s;
             IQueryable<TypeActivity> strQuery = null;
             return strQuery;
-        }
-
-        public IQueryable<Distributor> getDistributorQueryByTypeActivity(long id)
-        {
-            return null;//this.Distributors.Where(e => e.DistributorID == id);
-        }
+        }*/
 
         
     }

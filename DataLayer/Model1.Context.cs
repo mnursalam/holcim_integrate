@@ -13,9 +13,9 @@ namespace BusinessLogic
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ServiceEntities9 : DbContext
+    public partial class ServiceEntities13 : DbContext
     {
-        public ServiceEntities9()
+        public ServiceEntities13()
             : base("name=ServiceEntities")
         {
         }
@@ -26,13 +26,12 @@ namespace BusinessLogic
         }
     
         public DbSet<Activitylog> Activitylogs { get; set; }
+        public DbSet<ContactRelation> ContactRelations { get; set; }
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Contacttocontact> Contacttocontacts { get; set; }
         public DbSet<Distributor> Distributors { get; set; }
-        public DbSet<Prospect> Prospects { get; set; }
         public DbSet<Retailer> Retailers { get; set; }
         public DbSet<Salesarea> Salesareas { get; set; }
         public DbSet<TypeActivity> TypeActivities { get; set; }
-        public DbSet<Warehouse> Warehouses { get; set; }
+        public DbSet<warehouse> warehouses { get; set; }
     }
 }

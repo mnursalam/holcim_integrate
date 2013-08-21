@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ServiceModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="ServiceEntities9" p1:LazyLoadingEnabled="true">
+  <EntityContainer Name="ServiceEntities13" p1:LazyLoadingEnabled="true">
     <EntitySet Name="Activitylogs" EntityType="ServiceModel.Activitylog" />
+    <EntitySet Name="ContactRelations" EntityType="ServiceModel.ContactRelation" />
     <EntitySet Name="Contacts" EntityType="ServiceModel.Contact" />
-    <EntitySet Name="Contacttocontacts" EntityType="ServiceModel.Contacttocontact" />
     <EntitySet Name="Distributors" EntityType="ServiceModel.Distributor" />
-    <EntitySet Name="Prospects" EntityType="ServiceModel.Prospect" />
     <EntitySet Name="Retailers" EntityType="ServiceModel.Retailer" />
     <EntitySet Name="Salesareas" EntityType="ServiceModel.Salesarea" />
     <EntitySet Name="TypeActivities" EntityType="ServiceModel.TypeActivity" />
-    <EntitySet Name="Warehouses" EntityType="ServiceModel.Warehouse" />
+    <EntitySet Name="warehouses" EntityType="ServiceModel.warehouse" />
   </EntityContainer>
   <EntityType Name="Activitylog">
     <Key>
@@ -21,17 +20,28 @@
     <Property Name="description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
     <Property Name="created_at" Type="DateTime" Precision="3" />
   </EntityType>
+  <EntityType Name="ContactRelation">
+    <Key>
+      <PropertyRef Name="contact_id" />
+    </Key>
+    <Property Name="contact_id" Type="Int32" Nullable="false" />
+    <Property Name="sap_account_number" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="sap_contact_number" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+  </EntityType>
   <EntityType Name="Contact">
     <Key>
-      <PropertyRef Name="contactId" />
+      <PropertyRef Name="sap_contact_number" />
     </Key>
     <Property Name="contactId" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sap_contact_number" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="sap_contact_number" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="firstname" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="lastname" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="title" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="birthdate" Type="DateTime" Precision="3" />
     <Property Name="sex" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="marital_status" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="account_number" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="account_name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="phone" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="phone_2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
@@ -39,39 +49,21 @@
     <Property Name="Fax" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="Extension" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="Email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sap_created_by" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="sap_created_by" Type="Int64" />
     <Property Name="sap_created_date" Type="DateTime" Precision="3" />
-    <Property Name="sap_last_modify_by" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="sap_last_modify_by" Type="Int64" />
     <Property Name="sap_last_modify_date" Type="DateTime" Precision="3" />
-  </EntityType>
-  <EntityType Name="Contacttocontact">
-    <Key>
-      <PropertyRef Name="contactToContactId" />
-    </Key>
-    <Property Name="contactToContactId" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
-    <Property Name="sap_contact_number" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="dicision_maker" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="relation_category" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="rev_contact_number" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="created_by" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="created_date" Type="DateTime" Precision="3" />
-    <Property Name="last_modified_by" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="last_modified_date" Type="DateTime" Precision="3" />
-    <Property Name="source_system" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
   </EntityType>
   <EntityType Name="Distributor">
     <Key>
-      <PropertyRef Name="DistributorID" />
+      <PropertyRef Name="sap_account_number" />
     </Key>
-    <Property Name="DistributorID" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="account_name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="account_owner" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sap_account_number" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="sap_account_number" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="sap_account_status" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="account_type" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="account_subtype" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="primary_sold_to" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="sap_term_of_payment" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="sap_credit_limit" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="sap_remaining_credit" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
@@ -82,62 +74,7 @@
     <Property Name="region" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="city" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="postal_code" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="latitude" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="phone" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="extension_1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="fax" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="mobile_1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sap_created_by" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sap_created_date" Type="DateTime" Precision="3" />
-    <Property Name="sap_last_modified_by" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sap_last_modified_date" Type="DateTime" Precision="3" />
-    <Property Name="account_site" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="account_source" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="annual_revenue" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="billing_address" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="created_by" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="data_com_key" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="employees" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="industry" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="last_modified_by" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="ownership" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="rating" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="shipping_address" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sic_code" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sic_description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="ticker_symbol" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="website" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="active" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="customer_priority" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="number_of_location" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sla" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sla_expiration_date" Type="DateTime" Precision="3" />
-    <Property Name="sla_serial_number" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="transportation" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="upsell_opportunity" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="Prospect">
-    <Key>
-      <PropertyRef Name="prospectId" />
-    </Key>
-    <Property Name="prospectId" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="account_name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="account_owner" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="stars_prospect_id" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sap_account_number" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sap_account_status" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="account_type" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="account_subtype" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="primary_sold_to" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="address_1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="address_2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="address_3" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="country" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="region" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="city" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="postal_code" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="longitude" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="latitude" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="extension_1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
@@ -151,13 +88,12 @@
   </EntityType>
   <EntityType Name="Retailer">
     <Key>
-      <PropertyRef Name="retailerId" />
+      <PropertyRef Name="sap_account_number" />
     </Key>
-    <Property Name="retailerId" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="account_name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="account_owner" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="stars_prospect_id" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="sap_account_number" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="sap_account_number" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="sap_account_status" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="account_type" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="account_subtype" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
@@ -169,6 +105,7 @@
     <Property Name="region" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="city" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="postal_code" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="longitude" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="latitude" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="extension_1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
@@ -207,13 +144,16 @@
     <Property Name="DistirbutorId" Type="Int64" />
     <Property Name="Name" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
   </EntityType>
-  <EntityType Name="Warehouse">
+  <EntityType Name="warehouse">
     <Key>
-      <PropertyRef Name="wirehouseId" />
+      <PropertyRef Name="sap_account_number" />
     </Key>
-    <Property Name="wirehouseId" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="holcim_wirehouse_id" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="holcim_wirehouse_name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="account_name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="account_owner" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="sap_account_number" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="sap_account_status" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="account_type" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="account_subtype" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="primary_sold_to" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="address_1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="address_2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
@@ -222,6 +162,11 @@
     <Property Name="region" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="city" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="postal_code" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="longitude" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="latitude" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="sap_created_by" Type="Int64" />
+    <Property Name="sap_created_date" Type="DateTime" Precision="3" />
+    <Property Name="sap_last_modified_by" Type="Int64" />
+    <Property Name="sap_last_modified_date" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

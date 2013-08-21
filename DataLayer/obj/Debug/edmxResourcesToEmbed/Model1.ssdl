@@ -2,14 +2,13 @@
 <Schema Namespace="ServiceModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="ServiceModelStoreContainer">
     <EntitySet Name="Activitylogs" EntityType="ServiceModel.Store.Activitylogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContactRelations" EntityType="ServiceModel.Store.ContactRelations" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Contacts" EntityType="ServiceModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Contacttocontacts" EntityType="ServiceModel.Store.Contacttocontacts" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Distributors" EntityType="ServiceModel.Store.Distributors" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Prospects" EntityType="ServiceModel.Store.Prospects" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Retailers" EntityType="ServiceModel.Store.Retailers" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Salesareas" EntityType="ServiceModel.Store.Salesareas" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TypeActivity" EntityType="ServiceModel.Store.TypeActivity" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Warehouses" EntityType="ServiceModel.Store.Warehouses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="warehouses" EntityType="ServiceModel.Store.warehouses" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="Activitylogs">
     <Key>
@@ -21,17 +20,28 @@
     <Property Name="description" Type="text" />
     <Property Name="created_at" Type="datetime" />
   </EntityType>
+  <EntityType Name="ContactRelations">
+    <Key>
+      <PropertyRef Name="contact_id" />
+    </Key>
+    <Property Name="contact_id" Type="int" Nullable="false" />
+    <Property Name="sap_account_number" Type="varchar" MaxLength="255" />
+    <Property Name="sap_contact_number" Type="varchar" MaxLength="255" />
+  </EntityType>
   <EntityType Name="Contacts">
     <Key>
-      <PropertyRef Name="contactId" />
+      <PropertyRef Name="sap_contact_number" />
     </Key>
     <Property Name="contactId" Type="varchar" Nullable="false" MaxLength="255" />
-    <Property Name="sap_contact_number" Type="varchar" MaxLength="255" />
+    <Property Name="sap_contact_number" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="firstname" Type="varchar" MaxLength="255" />
+    <Property Name="lastname" Type="varchar" MaxLength="255" />
     <Property Name="name" Type="varchar" MaxLength="255" />
     <Property Name="title" Type="varchar" MaxLength="255" />
     <Property Name="birthdate" Type="datetime" />
     <Property Name="sex" Type="varchar" MaxLength="255" />
     <Property Name="marital_status" Type="varchar" MaxLength="255" />
+    <Property Name="account_number" Type="varchar" MaxLength="255" />
     <Property Name="account_name" Type="varchar" MaxLength="255" />
     <Property Name="phone" Type="varchar" MaxLength="255" />
     <Property Name="phone_2" Type="varchar" MaxLength="255" />
@@ -39,39 +49,21 @@
     <Property Name="Fax" Type="varchar" MaxLength="255" />
     <Property Name="Extension" Type="varchar" MaxLength="255" />
     <Property Name="Email" Type="varchar" MaxLength="255" />
-    <Property Name="sap_created_by" Type="varchar" MaxLength="255" />
+    <Property Name="sap_created_by" Type="bigint" />
     <Property Name="sap_created_date" Type="datetime" />
-    <Property Name="sap_last_modify_by" Type="varchar" MaxLength="255" />
+    <Property Name="sap_last_modify_by" Type="bigint" />
     <Property Name="sap_last_modify_date" Type="datetime" />
-  </EntityType>
-  <EntityType Name="Contacttocontacts">
-    <Key>
-      <PropertyRef Name="contactToContactId" />
-    </Key>
-    <Property Name="contactToContactId" Type="nchar" Nullable="false" MaxLength="10" />
-    <Property Name="sap_contact_number" Type="varchar" MaxLength="255" />
-    <Property Name="dicision_maker" Type="varchar" MaxLength="255" />
-    <Property Name="relation_category" Type="varchar" MaxLength="255" />
-    <Property Name="rev_contact_number" Type="varchar" MaxLength="255" />
-    <Property Name="created_by" Type="varchar" MaxLength="255" />
-    <Property Name="created_date" Type="datetime" />
-    <Property Name="last_modified_by" Type="varchar" MaxLength="255" />
-    <Property Name="last_modified_date" Type="datetime" />
-    <Property Name="source_system" Type="varchar" MaxLength="255" />
-    <Property Name="description" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Distributors">
     <Key>
-      <PropertyRef Name="DistributorID" />
+      <PropertyRef Name="sap_account_number" />
     </Key>
-    <Property Name="DistributorID" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="account_name" Type="varchar" MaxLength="255" />
     <Property Name="account_owner" Type="varchar" MaxLength="255" />
-    <Property Name="sap_account_number" Type="varchar" MaxLength="255" />
+    <Property Name="sap_account_number" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="sap_account_status" Type="varchar" MaxLength="255" />
     <Property Name="account_type" Type="varchar" MaxLength="255" />
     <Property Name="account_subtype" Type="varchar" MaxLength="255" />
-    <Property Name="primary_sold_to" Type="varchar" MaxLength="255" />
     <Property Name="sap_term_of_payment" Type="varchar" MaxLength="255" />
     <Property Name="sap_credit_limit" Type="varchar" MaxLength="255" />
     <Property Name="sap_remaining_credit" Type="varchar" MaxLength="255" />
@@ -82,62 +74,7 @@
     <Property Name="region" Type="varchar" MaxLength="255" />
     <Property Name="city" Type="varchar" MaxLength="255" />
     <Property Name="postal_code" Type="varchar" MaxLength="255" />
-    <Property Name="latitude" Type="varchar" MaxLength="255" />
-    <Property Name="email" Type="varchar" MaxLength="255" />
-    <Property Name="phone" Type="varchar" MaxLength="255" />
-    <Property Name="extension_1" Type="varchar" MaxLength="255" />
-    <Property Name="fax" Type="varchar" MaxLength="255" />
-    <Property Name="mobile_1" Type="varchar" MaxLength="255" />
-    <Property Name="sap_created_by" Type="varchar" MaxLength="255" />
-    <Property Name="sap_created_date" Type="datetime" />
-    <Property Name="sap_last_modified_by" Type="varchar" MaxLength="255" />
-    <Property Name="sap_last_modified_date" Type="datetime" />
-    <Property Name="account_site" Type="varchar" MaxLength="255" />
-    <Property Name="account_source" Type="varchar" MaxLength="255" />
-    <Property Name="annual_revenue" Type="varchar" MaxLength="255" />
-    <Property Name="billing_address" Type="varchar" MaxLength="255" />
-    <Property Name="created_by" Type="varchar" MaxLength="255" />
-    <Property Name="data_com_key" Type="varchar" MaxLength="255" />
-    <Property Name="description" Type="varchar" MaxLength="255" />
-    <Property Name="employees" Type="varchar" MaxLength="255" />
-    <Property Name="industry" Type="varchar" MaxLength="255" />
-    <Property Name="last_modified_by" Type="varchar" MaxLength="255" />
-    <Property Name="ownership" Type="varchar" MaxLength="255" />
-    <Property Name="rating" Type="varchar" MaxLength="255" />
-    <Property Name="shipping_address" Type="varchar" MaxLength="255" />
-    <Property Name="sic_code" Type="varchar" MaxLength="255" />
-    <Property Name="sic_description" Type="varchar" MaxLength="255" />
-    <Property Name="ticker_symbol" Type="varchar" MaxLength="255" />
-    <Property Name="website" Type="varchar" MaxLength="255" />
-    <Property Name="active" Type="varchar" MaxLength="255" />
-    <Property Name="customer_priority" Type="varchar" MaxLength="255" />
-    <Property Name="number_of_location" Type="varchar" MaxLength="255" />
-    <Property Name="sla" Type="varchar" MaxLength="255" />
-    <Property Name="sla_expiration_date" Type="datetime" />
-    <Property Name="sla_serial_number" Type="varchar" MaxLength="255" />
-    <Property Name="transportation" Type="varchar" MaxLength="255" />
-    <Property Name="upsell_opportunity" Type="varchar" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="Prospects">
-    <Key>
-      <PropertyRef Name="prospectId" />
-    </Key>
-    <Property Name="prospectId" Type="varchar" Nullable="false" MaxLength="255" />
-    <Property Name="account_name" Type="varchar" MaxLength="255" />
-    <Property Name="account_owner" Type="varchar" MaxLength="255" />
-    <Property Name="stars_prospect_id" Type="varchar" MaxLength="255" />
-    <Property Name="sap_account_number" Type="varchar" MaxLength="255" />
-    <Property Name="sap_account_status" Type="varchar" MaxLength="255" />
-    <Property Name="account_type" Type="varchar" MaxLength="255" />
-    <Property Name="account_subtype" Type="varchar" MaxLength="255" />
-    <Property Name="primary_sold_to" Type="varchar" MaxLength="255" />
-    <Property Name="address_1" Type="varchar" MaxLength="255" />
-    <Property Name="address_2" Type="varchar" MaxLength="255" />
-    <Property Name="address_3" Type="varchar" MaxLength="255" />
-    <Property Name="country" Type="varchar" MaxLength="255" />
-    <Property Name="region" Type="varchar" MaxLength="255" />
-    <Property Name="city" Type="varchar" MaxLength="255" />
-    <Property Name="postal_code" Type="varchar" MaxLength="255" />
+    <Property Name="longitude" Type="varchar" MaxLength="255" />
     <Property Name="latitude" Type="varchar" MaxLength="255" />
     <Property Name="email" Type="varchar" MaxLength="255" />
     <Property Name="extension_1" Type="varchar" MaxLength="255" />
@@ -151,13 +88,12 @@
   </EntityType>
   <EntityType Name="Retailers">
     <Key>
-      <PropertyRef Name="retailerId" />
+      <PropertyRef Name="sap_account_number" />
     </Key>
-    <Property Name="retailerId" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="account_name" Type="varchar" MaxLength="255" />
     <Property Name="account_owner" Type="varchar" MaxLength="255" />
     <Property Name="stars_prospect_id" Type="varchar" MaxLength="255" />
-    <Property Name="sap_account_number" Type="varchar" MaxLength="255" />
+    <Property Name="sap_account_number" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="sap_account_status" Type="varchar" MaxLength="255" />
     <Property Name="account_type" Type="varchar" MaxLength="255" />
     <Property Name="account_subtype" Type="varchar" MaxLength="255" />
@@ -169,6 +105,7 @@
     <Property Name="region" Type="varchar" MaxLength="255" />
     <Property Name="city" Type="varchar" MaxLength="255" />
     <Property Name="postal_code" Type="varchar" MaxLength="255" />
+    <Property Name="longitude" Type="varchar" MaxLength="255" />
     <Property Name="latitude" Type="varchar" MaxLength="255" />
     <Property Name="email" Type="varchar" MaxLength="255" />
     <Property Name="extension_1" Type="varchar" MaxLength="255" />
@@ -207,13 +144,16 @@
     <Property Name="DistirbutorId" Type="bigint" />
     <Property Name="Name" Type="nchar" MaxLength="10" />
   </EntityType>
-  <EntityType Name="Warehouses">
+  <EntityType Name="warehouses">
     <Key>
-      <PropertyRef Name="wirehouseId" />
+      <PropertyRef Name="sap_account_number" />
     </Key>
-    <Property Name="wirehouseId" Type="varchar" Nullable="false" MaxLength="255" />
-    <Property Name="holcim_wirehouse_id" Type="varchar" MaxLength="255" />
-    <Property Name="holcim_wirehouse_name" Type="varchar" MaxLength="255" />
+    <Property Name="account_name" Type="varchar" MaxLength="255" />
+    <Property Name="account_owner" Type="varchar" MaxLength="255" />
+    <Property Name="sap_account_number" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="sap_account_status" Type="varchar" MaxLength="255" />
+    <Property Name="account_type" Type="varchar" MaxLength="255" />
+    <Property Name="account_subtype" Type="varchar" MaxLength="255" />
     <Property Name="primary_sold_to" Type="varchar" MaxLength="255" />
     <Property Name="address_1" Type="varchar" MaxLength="255" />
     <Property Name="address_2" Type="varchar" MaxLength="255" />
@@ -222,6 +162,11 @@
     <Property Name="region" Type="varchar" MaxLength="255" />
     <Property Name="city" Type="varchar" MaxLength="255" />
     <Property Name="postal_code" Type="varchar" MaxLength="255" />
-    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="longitude" Type="varchar" MaxLength="255" />
+    <Property Name="latitude" Type="varchar" MaxLength="255" />
+    <Property Name="sap_created_by" Type="bigint" />
+    <Property Name="sap_created_date" Type="datetime" />
+    <Property Name="sap_last_modified_by" Type="bigint" />
+    <Property Name="sap_last_modified_date" Type="datetime" />
   </EntityType>
 </Schema>

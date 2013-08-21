@@ -3,7 +3,6 @@
     
     public partial class Retailer
     {
-        public string retailerId { get; set; }
         public string account_name { get; set; }
         public string account_owner { get; set; }
         public string stars_prospect_id { get; set; }
@@ -19,6 +18,7 @@
         public string region { get; set; }
         public string city { get; set; }
         public string postal_code { get; set; }
+        public string longitude { get; set; }
         public string latitude { get; set; }
         public string email { get; set; }
         public string extension_1 { get; set; }
