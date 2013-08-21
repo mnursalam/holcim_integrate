@@ -57,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SetEntitiy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
